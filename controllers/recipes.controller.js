@@ -15,17 +15,19 @@ exports.renderNew = (req, res) => {
 
 exports.create = async (req, res) => {
   try {
-    // If you use multer for file upload, access file with req.file
-    // but check if req.file exists first!
     let imagePath = '';
+
     if (req.file) {
-      imagePath = req.file.path; // or your cloudinary url or wherever
+      imagePath = req.file.path;
+    } else if (req.body.imageUrl && req.body.imageUrl.trim() !== '') {
+      imagePath = req.body.imageUrl.trim();
     }
 
     const recipeData = {
       title: req.body.title,
       ingredients: req.body.ingredients,
       instructions: req.body.instructions,
+      category: req.body.category,
       image: imagePath,
     };
 
@@ -64,9 +66,12 @@ exports.update = async (req, res) => {
     recipe.title = req.body.title;
     recipe.ingredients = req.body.ingredients;
     recipe.instructions = req.body.instructions;
+    recipe.category = req.body.category;
 
     if (req.file) {
-      recipe.image = req.file.path; // Update image if new one uploaded
+      recipe.image = req.file.path;
+    } else if (req.body.imageUrl && req.body.imageUrl.trim() !== '') {
+      recipe.image = req.body.imageUrl.trim();
     }
 
     await recipe.save();

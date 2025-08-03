@@ -1,54 +1,40 @@
-.show-page-container {
-  max-width: 720px;
+.recipe-container {
+  max-width: 700px;
   margin: 2rem auto;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fefefe;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-.show-header {
+.recipe-heading {
   text-align: center;
-  padding: 1.5rem 0;
-  border-bottom: 2px solid #fb6e3b;
-  margin-bottom: 2rem;
-}
-
-.show-header h1 {
-  font-size: 2.5rem;
   color: #fb6e3b;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin: 0;
-}
-
-.recipe-show-container {
-  padding: 0 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .recipe-title {
-  font-size: 2rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
   margin-bottom: 1rem;
   color: #333;
-  text-align: center;
-  font-weight: 700;
 }
 
 .recipe-image {
   display: block;
   max-width: 100%;
-  height: auto;
   margin: 0 auto 1.5rem auto;
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .recipe-category {
+  text-align: center;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #666;
-  margin-bottom: 1.8rem;
-  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
 }
 
 .recipe-section {
@@ -56,14 +42,14 @@
 }
 
 .recipe-section h3 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: #fb6e3b;
-  border-bottom: 3px solid #fb6e3b;
+  border-bottom: 2px solid #fb6e3b;
   padding-bottom: 0.3rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
 }
 
-.recipe-actions {
+.recipe-buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -71,16 +57,14 @@
 }
 
 .btn {
-  padding: 0.6rem 1.3rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 8px;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
   border: none;
-  transition: background-color 0.3s ease;
-  display: inline-block;
-  text-align: center;
   font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .btn-edit {
@@ -103,25 +87,26 @@
   background-color: #dc2626;
 }
 
-.delete-form button {
-  width: 100%;
-  height: 100%;
-  font-size: 1rem;
+.delete-form {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  background: none; /* removes beige box */
+  box-shadow: none;
 }
 
 .btn-back {
   display: block;
-  max-width: 180px;
-  margin: 0 auto 2rem auto;
-  padding: 0.75rem 1.8rem;
+  max-width: 200px;
+  margin: 0 auto;
+  text-align: center;
   background-color: #fb6e3b;
   color: white;
-  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
   font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(251, 110, 59, 0.4);
   text-decoration: none;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(251, 110, 59, 0.5);
-  transition: background-color 0.3s ease;
 }
 
 .btn-back:hover {

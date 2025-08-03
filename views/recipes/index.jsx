@@ -23,24 +23,49 @@ function Index(props) {
         <main className="container">
           <h2>All Recipes</h2>
           <div className="card-container">
-            {recipes.map((recipe) => (
-              <div className="card" key={recipe._id}>
-                {recipe.imagePath && (
-                  <img src={`/${recipe.imagePath}`} alt={recipe.name} className="card-image" />
-                )}
-                <div className="card-content">
-                  <h3>{recipe.name}</h3>
-                  <p>{recipe.description}</p>
-                  <div className="card-actions">
-                    <a className="btn" href={`/recipes/${recipe._id}`}>View</a>
-                    <a className="btn btn-secondary" href={`/recipes/${recipe._id}/edit`}>Edit</a>
-                    <form method="POST" action={`/recipes/${recipe._id}?_method=DELETE`}>
-                      <button className="btn btn-danger" type="submit">Delete</button>
-                    </form>
+            {recipes.map((recipe) => {
+              // Determine image source (handle URL or local path)
+              const imageUrl = recipe.image
+                ? recipe.image.startsWith('http')
+                  ? recipe.image
+                  : `/${recipe.image}`
+                : null;
+
+              return (
+                <div className="card" key={recipe._id}>
+                  {imageUrl && (
+                    <img
+                      src={imageUrl}
+                      alt={recipe.title}
+                      className="card-image"
+                    />
+                  )}
+                  <div className="card-content">
+                    <h3>{recipe.title}</h3>
+                    <p>{recipe.description}</p>
+                    <div className="card-actions">
+                      <a className="btn" href={`/recipes/${recipe._id}`}>
+                        View
+                      </a>
+                      <a
+                        className="btn btn-secondary"
+                        href={`/recipes/${recipe._id}/edit`}
+                      >
+                        Edit
+                      </a>
+                      <form
+                        method="POST"
+                        action={`/recipes/${recipe._id}?_method=DELETE`}
+                      >
+                        <button className="btn btn-danger" type="submit">
+                          Delete
+                        </button>
+                      </form>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </main>
       </body>
