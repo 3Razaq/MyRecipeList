@@ -17,7 +17,7 @@ a:hover {
 
 /* Navbar */
 .navbar {
-  background-color: #ff6b35;
+  background-color: rgb(194, 169, 131);
   padding: 1rem 0;
   color: white;
 }
@@ -113,3 +113,7 @@ a:hover {
 .btn-danger:hover {
   background-color: #b71c1c;
 }
+
+
+  
+

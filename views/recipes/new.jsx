@@ -1,44 +1,81 @@
 const React = require('react');
-const Index = require('../partials/index');
+const Layout = require('../layouts/Layout');
 
 function NewRecipe() {
   return (
-    <Index title="Add New Recipe">
-      <link rel="stylesheet" href="/stylesheets/edit.css" />
+    <Layout title="Add New Recipe" sheetName="new">
+      <main className="container-new">
+        <h2>Add a New Recipe</h2>
 
-      <h1>Add a New Recipe</h1>
-      <form action="/recipes" method="POST" encType="multipart/form-data">
-        <label>Title:</label>
-        <input name="title" required placeholder="Recipe title" />
+        <form
+          action="/recipes"
+          method="POST"
+          encType="multipart/form-data"
+          className="form"
+        >
+          <div className="form-group">
+            <label htmlFor="title">Title:</label>
+            <input name="title" id="title" required placeholder="Recipe title" />
+          </div>
 
-        <label>Ingredients:</label>
-        <textarea name="ingredients" placeholder="Enter ingredients" rows={4} />
+          <div className="form-group">
+            <label htmlFor="ingredients">Ingredients:</label>
+            <textarea
+              name="ingredients"
+              id="ingredients"
+              placeholder="Enter ingredients"
+              rows={4}
+            />
+          </div>
 
-        <label>Instructions:</label>
-        <textarea name="instructions" placeholder="Enter instructions" rows={5} />
+          <div className="form-group">
+            <label htmlFor="instructions">Instructions:</label>
+            <textarea
+              name="instructions"
+              id="instructions"
+              placeholder="Enter instructions"
+              rows={5}
+            />
+          </div>
 
-        <label>Description:</label>
-        <textarea name="description" placeholder="Enter description" rows={6} />
+          <div className="form-group">
+            <label htmlFor="description">Description:</label>
+            <textarea
+              name="description"
+              id="description"
+            />
+          </div>
 
-        <label>Category:</label>
-        <input name="category" placeholder="e.g. Breakfast, Dessert" />
+          <div className="form-group">
+            <label htmlFor="category">Category:</label>
+            <input
+              name="category"
+              id="category"
+              placeholder="e.g. Breakfast, Dessert"
+            />
+          </div>
 
-        <label>Recipe Image (Upload file):</label>
-        <input name="imageFile" type="file" accept="image/*" />
+          <div className="form-group">
+            <label htmlFor="imageFile">Recipe Image (Upload file):</label>
+            <input name="imageFile" id="imageFile" type="file" accept="image/*" />
+          </div>
 
-        <label>Or Image URL:</label>
-        <input
-          name="imageUrl"
-          type="url"
-          placeholder="Paste image URL here"
-          style={{ width: '100%', marginBottom: '1rem' }}
-        />
+          <div className="form-group">
+            <label htmlFor="imageUrl">Or Image URL:</label>
+            <input
+              name="imageUrl"
+              id="imageUrl"
+              type="url"
+              placeholder="Paste image URL here"
+            />
+          </div>
 
-        <button type="submit">Add Recipe</button>
-      </form>
+          <button type="submit" className="btn">Add Recipe</button>
+        </form>
 
-      <a href="/recipes" className="btn btn-back">← Back to Home</a>
-    </Index>
+        <a href="/recipes" className="btn btn-back">← Back to Home</a>
+      </main>
+    </Layout>
   );
 }
 

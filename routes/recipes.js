@@ -1,28 +1,28 @@
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
 const recipesController = require('../controllers/recipes.controller');
+const upload = require('../config/multer');
+const isSignedIn = require('../middleware/is-signed-in'); // imported as default function
 
 // List all recipes
 router.get('/', recipesController.index);
 
-// Show new recipe form
-router.get('/new', recipesController.renderNew);
+// Show form to add new recipe (protected)
+router.get('/new', isSignedIn, recipesController.renderNew);
 
-// Create new recipe
-router.post('/', upload.single('image'), recipesController.create);
+// Create recipe - expects file input name="imageFile"
+router.post('/', isSignedIn, upload.single('imageFile'), recipesController.create);
 
-// Show single recipe
+// Show recipe details
 router.get('/:id', recipesController.show);
 
-// Show edit form
-router.get('/:id/edit', recipesController.renderEdit);
+// Show edit form (protected)
+router.get('/:id/edit', isSignedIn, recipesController.renderEdit);
 
-// Update recipe
-router.put('/:id', upload.single('image'), recipesController.update);
+// Update recipe (protected)
+router.put('/:id', isSignedIn, upload.single('imageFile'), recipesController.update);
 
-// Delete recipe
-router.delete('/:id', recipesController.delete);
+// Delete recipe (protected)
+router.delete('/:id', isSignedIn, recipesController.delete);
 
 module.exports = router;

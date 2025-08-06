@@ -47,6 +47,6 @@ exports.signUp = async (req, res) => {
 
 exports.signOut = (req, res) => {
   req.session.destroy(() => {
-    res.redirect('/sign-in');
+    res.redirect('/auth/sign-in');
   });
 };

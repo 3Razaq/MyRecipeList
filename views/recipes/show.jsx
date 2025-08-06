@@ -1,5 +1,5 @@
 const React = require('react');
-const Index = require('../partials/index');
+const Layout = require('../layouts/Layout');
 
 function RecipesShow({ recipe }) {
   const imageUrl = recipe.image
@@ -9,8 +9,7 @@ function RecipesShow({ recipe }) {
     : '';
 
   return (
-    <Index title="Details of Recipes">
-      <link rel="stylesheet" href="/stylesheets/show.css" />
+    <Layout title="Details of Recipes" sheetName="show">
       <div className="recipe-container">
         <h1 className="recipe-heading">Details of Recipes</h1>
 
@@ -23,13 +22,18 @@ function RecipesShow({ recipe }) {
         <p className="recipe-category"><strong>Category:</strong> {recipe.category}</p>
 
         <div className="recipe-section">
-          <h3>Ingredients:</h3>
+          <h3>Ingredients</h3>
           <p>{recipe.ingredients}</p>
         </div>
 
         <div className="recipe-section">
-          <h3>Instructions:</h3>
+          <h3>Instructions</h3>
           <p>{recipe.instructions}</p>
+        </div>
+
+        <div className="recipe-section">
+          <h3>Description</h3>
+          <p>{recipe.description}</p>
         </div>
 
         <div className="recipe-buttons">
@@ -48,7 +52,7 @@ function RecipesShow({ recipe }) {
 
         <a href="/recipes" className="btn btn-back">← Back to Recipes</a>
       </div>
-    </Index>
+    </Layout>
   );
 }
 

@@ -1,88 +1,123 @@
-/* Reset & base */
-body {
-  margin: 0;
-  padding: 0;
+/* Container */
+.container {
+  max-width: 600px;
+  margin: 2rem auto 4rem;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f6f8;
   color: #333;
 }
 
-h1 {
+/* Headings */
+.container h2 {
   text-align: center;
+  color: #ff6b35;
   margin-bottom: 2rem;
-  color: #ff5722;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
-/* Container */
-.form-container {
-  max-width: 600px;
-  margin: 3rem auto;
-  padding: 2rem 2.5rem;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
 }
 
-/* Form styles */
+/* Form Groups */
 .form-group {
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
-label {
-  display: block;
-  margin-bottom: 0.5rem;
+/* Labels */
+.form-group label {
   font-weight: 600;
   font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #555;
 }
 
-input[type="text"],
-textarea,
-input[type="file"] {
-  width: 100%;
-  padding: 0.75rem;
+/* Inputs and Textareas */
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group input[type="file"],
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  resize: vertical;
+  background-color: #fafafa;
 }
 
-input[type="text"]:focus,
-textarea:focus {
-  border-color: #ff5722;
+.form-group input[type="file"] {
+  padding: 0.4rem 1rem;
+  background-color: transparent;
+}
+
+/* Focus States */
+.form-group input[type="text"]:focus,
+.form-group input[type="url"]:focus,
+.form-group input[type="file"]:focus,
+.form-group textarea:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 8px rgba(255, 107, 53, 0.3);
+  outline: none;
+  background-color: #fff;
+}
+
+/* Textarea min height */
+.form-group textarea {
+  min-height: 4rem;
+}
+
+/* Submit Button */
+.btn {
+  background-color: #ff6b35;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.85rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: center;
+  width: 150px;
+  box-shadow: 0 4px 8px rgba(255, 107, 53, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #e65a2d;
+  box-shadow: 0 6px 14px rgba(230, 90, 45, 0.6);
   outline: none;
 }
 
-/* Submit button */
-button.btn {
-  width: 100%;
-  padding: 0.9rem;
-  background-color: #ff5722;
-  color: white;
-  border: none;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button.btn:hover {
-  background-color: #e64a19;
-}
-/* Back button style */
-a.btn-back {
+/* Back Button */
+.btn-back {
   display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #888; /* gray color */
-  color: white;
+  margin: 2rem auto 0 auto;
+  padding: 0.6rem 1.2rem;
   border-radius: 8px;
+  background-color: #ff6b35;
+  color: white;
+  font-weight: 700;
   text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(255, 107, 53, 0.35);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 180px;
 }
 
-a.btn-back:hover {
-  background-color: #555;
+.btn-back:hover,
+.btn-back:focus {
+  background-color: #e65a2d;
+  box-shadow: 0 6px 14px rgba(230, 90, 45, 0.55);
+  outline: none;
 }

@@ -18,7 +18,7 @@ exports.create = async (req, res) => {
     let imagePath = '';
 
     if (req.file) {
-      imagePath = req.file.path;
+      imagePath = req.file.path.replace(/\\/g, '/'); // Normalize Windows path slashes
     } else if (req.body.imageUrl && req.body.imageUrl.trim() !== '') {
       imagePath = req.body.imageUrl.trim();
     }
@@ -28,7 +28,8 @@ exports.create = async (req, res) => {
       ingredients: req.body.ingredients,
       instructions: req.body.instructions,
       category: req.body.category,
-      image: imagePath,
+      description: req.body.description,
+      image: imagePath.replace('/public',''),
     };
 
     await Recipe.create(recipeData);
@@ -67,9 +68,10 @@ exports.update = async (req, res) => {
     recipe.ingredients = req.body.ingredients;
     recipe.instructions = req.body.instructions;
     recipe.category = req.body.category;
+    recipe.description = req.body.description;
 
     if (req.file) {
-      recipe.image = req.file.path;
+      recipe.image = req.file.path.replace(/\\/g, '/');
     } else if (req.body.imageUrl && req.body.imageUrl.trim() !== '') {
       recipe.image = req.body.imageUrl.trim();
     }

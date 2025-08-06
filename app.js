@@ -1,14 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const multer = require('multer');
 const dotenv = require('dotenv');
 const path = require('path');
 
+// Load environment variables
 dotenv.config();
 
-const upload = multer({ dest: 'uploads/' });
 const app = express();
+
+// Import multer from your custom config
+const upload = require('./config/multer'); // adjust path if needed
 
 // Controllers
 const recipesController = require('./controllers/recipes.controller');
@@ -22,7 +24,7 @@ mongoose
   .then(() => console.log('MongoDB connected to Atlas'))
   .catch((err) => console.log('MongoDB connection error:', err));
 
-// View engine
+// View engine setup
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 app.set('views', path.join(__dirname, 'views'));
@@ -31,17 +33,20 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
 
 // Auth routes
 app.use('/', authRoutes);
 
-// Recipe routes
+// Recipe routes with multer upload middleware
 app.get('/recipes', recipesController.index);
 app.get('/recipes/new', recipesController.renderNew);
-app.post('/recipes', upload.single('image'), recipesController.create);
+app.post('/recipes', upload.single('imageFile'), recipesController.create);  // Note: fieldname is 'imageFile'
 app.get('/recipes/:id', recipesController.show);
 app.get('/recipes/:id/edit', recipesController.renderEdit);
-app.put('/recipes/:id', upload.single('image'), recipesController.update);
+app.put('/recipes/:id', upload.single('imageFile'), recipesController.update);  // same here
 app.delete('/recipes/:id', recipesController.delete);
 
 // Start server

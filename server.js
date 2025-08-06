@@ -8,7 +8,7 @@ const session = require('express-session');
 
 dotenv.config();
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: 'public/uploads/' });
 const app = express();
 
 // Connect to MongoDB
