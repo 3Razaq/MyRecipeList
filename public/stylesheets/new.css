@@ -121,3 +121,7 @@
   box-shadow: 0 6px 14px rgba(230, 90, 45, 0.55);
   outline: none;
 }
+h2 {
+  display: flex;
+  place-content: center;
+}

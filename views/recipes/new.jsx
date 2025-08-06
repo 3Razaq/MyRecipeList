@@ -43,6 +43,7 @@ function NewRecipe() {
             <textarea
               name="description"
               id="description"
+              placeholder="Enter description"
             />
           </div>
 

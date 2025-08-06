@@ -42,7 +42,7 @@ exports.signUp = async (req, res) => {
   const newUser = new User({ username, password: hash });
   await newUser.save();
 
-  return res.redirect('/sign-in');
+  return res.redirect('/auth/sign-in');
 };
 
 exports.signOut = (req, res) => {

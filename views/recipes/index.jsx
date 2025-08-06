@@ -13,7 +13,7 @@ function Index({ recipes }) {
           <div className="container">
             <h1 className="logo">🍲 My Recipes</h1>
             <nav>
-              <a href="/recipes">Home</a>
+              {/* <a href="/recipes">Home</a> */}
               <a href="/recipes/new">Add Recipe</a>
             </nav>
           </div>
@@ -41,7 +41,7 @@ function Index({ recipes }) {
                   )}
                   <div className="card-content">
                     <h3>{recipe.title}</h3>
-                    <p>{recipe.description}</p>
+                    <p>{recipe.category}</p>
 
                     <div className="card-actions">
                       <a className="btn" href={`/recipes/${recipe._id}`}>

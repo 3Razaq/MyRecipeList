@@ -8,6 +8,15 @@ function RecipesShow({ recipe }) {
       : `/${recipe.image}`
     : '';
 
+  // Helper function to render line breaks
+  const renderMultilineText = (text) =>
+    text.split('\n').map((line, idx) => (
+      <span key={idx}>
+        {line}
+        <br />
+      </span>
+    ));
+
   return (
     <Layout title="Details of Recipes" sheetName="show">
       <div className="recipe-container">
@@ -23,17 +32,17 @@ function RecipesShow({ recipe }) {
 
         <div className="recipe-section">
           <h3>Ingredients</h3>
-          <p>{recipe.ingredients}</p>
+          <p>{renderMultilineText(recipe.ingredients)}</p>
         </div>
 
         <div className="recipe-section">
           <h3>Instructions</h3>
-          <p>{recipe.instructions}</p>
+          <p>{renderMultilineText(recipe.instructions)}</p>
         </div>
 
         <div className="recipe-section">
           <h3>Description</h3>
-          <p>{recipe.description}</p>
+          <p>{renderMultilineText(recipe.description)}</p>
         </div>
 
         <div className="recipe-buttons">
