@@ -4,12 +4,6 @@ MyRecipeList is a full-stack Node.js and Express web application where users can
 
 ---
 
-## 📸 Demo
-
-Coming soon...
-
----
-
 ## 🚀 Features
 
 - ✅ Sign Up / Sign In / Sign Out  
@@ -30,6 +24,27 @@ Coming soon...
 - **Image Uploads:** multer  
 - **Styling:** Custom CSS in `/public/stylesheets`  
 - **Deployment-ready** (Render, Vercel, Heroku, etc.)  
+
+---
+
+## 📌 Routes Table
+
+| Method     | Route               | Description            | Access    |
+| ---------- | ------------------- | ---------------------- | --------- |
+| **GET**    | `/`                 | Redirect to `/recipes` | Public    |
+| **GET**    | `/auth/sign-up`     | Show sign-up form      | Public    |
+| **POST**   | `/auth/sign-up`     | Handle sign-up         | Public    |
+| **GET**    | `/auth/sign-in`     | Show sign-in form      | Public    |
+| **POST**   | `/auth/sign-in`     | Handle login           | Public    |
+| **POST**   | `/auth/sign-out`    | Logout user            | Protected |
+| **GET**    | `/recipes`          | List all recipes       | Public    |
+| **GET**    | `/recipes/new`      | Show new recipe form   | Protected |
+| **POST**   | `/recipes`          | Create new recipe      | Protected |
+| **GET**    | `/recipes/:id`      | Show a single recipe   | Public    |
+| **GET**    | `/recipes/:id/edit` | Show edit form         | Protected |
+| **PUT**    | `/recipes/:id`      | Update a recipe        | Protected |
+| **DELETE** | `/recipes/:id`      | Delete a recipe        | Protected |
+
 
 ---
 
@@ -82,3 +97,28 @@ myrecipelist
 ├── package.json
 ├── README.md
 ├── server.js
+```
+---
+
+## 📸 Demo
+
+## The sign-in page
+![alt text](image.png)
+
+## The sign-up page
+![alt text](image-2.png)
+
+## The Home page
+![alt text](image-1.png)
+
+## adding page
+![alt text](image-3.png)
+
+## The editing page
+![alt text](image-4.png)
+
+
+---
+
+## Linkedin Profile
+[Linkedin](https://www.linkedin.com/in/abdulrazaq-hassan-3q/)
